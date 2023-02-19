@@ -1,5 +1,5 @@
 
-def bracket_match(text: str, starting_symbol = '(', ending_symbol = ')'):
+def bracket_match(text: str, starting_symbol = '(', ending_symbol = ')', aux_symbol = '.'):
 
     gotos = []
     bracket_check = [x for x in text]
@@ -16,8 +16,8 @@ def bracket_match(text: str, starting_symbol = '(', ending_symbol = ')'):
                 if nested_srs == 1:
                     pair = pair + [x]
                     gotos.append(pair)
-                    bracket_check[pair[0]] = '.'
-                    bracket_check[pair[1]] = '.'
+                    bracket_check[pair[0]] = aux_symbol
+                    bracket_check[pair[1]] = aux_symbol
                 else:
                     nested_srs -= 1
 
